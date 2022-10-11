@@ -2,6 +2,14 @@ const { BadRequestError } = require("../expressError");
 
 // THIS NEEDS SOME GREAT DOCUMENTATION.
 
+/**
+ * 
+ * @param {*} dataToUpdate  the data to be updated. It is an object
+ * @param {*} jsToSql setsup the key value pair to be used in JWTs to avaoid sql injection attack
+ * @returns an object with two attributes, columns and its values
+ * 
+ */
+
 function sqlForPartialUpdate(dataToUpdate, jsToSql) {
   const keys = Object.keys(dataToUpdate);
   if (keys.length === 0) throw new BadRequestError("No data");
@@ -18,3 +26,4 @@ function sqlForPartialUpdate(dataToUpdate, jsToSql) {
 }
 
 module.exports = { sqlForPartialUpdate };
+
